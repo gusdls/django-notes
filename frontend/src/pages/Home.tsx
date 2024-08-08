@@ -50,9 +50,15 @@ function Home() {
       <div className="w-full">
         <h2 className="px-2 text-2xl font-serif font-extrabold">Notes</h2>
         <div className="mt-2 grid gap-4 xl:grid-cols-2">
-          {notes.map((note) => (
-            <Note key={note.id} {...note} onDelete={deleteNote} />
-          ))}
+          {notes.length === 0 ? (
+            <div className="text-neutral-400 text-sm">
+              Nothing is here, add some your notes!
+            </div>
+          ) : (
+            notes.map((note) => (
+              <Note key={note.id} {...note} onDelete={deleteNote} />
+            ))
+          )}
         </div>
       </div>
       <div className="max-w-lg w-full">
